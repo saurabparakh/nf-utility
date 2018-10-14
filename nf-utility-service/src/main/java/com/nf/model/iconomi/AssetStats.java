@@ -5,21 +5,35 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import org.springframework.data.annotation.Id;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 @Document(collection = "AssetStats")
 public class AssetStats implements Comparable{
 
-    @Id
+     @Id
      private String id;
      @Indexed
      private String name;
+     @Indexed
+     private Integer month;
+     @Indexed
+     private Integer date;
+     @Indexed
+     private Integer year;
      private Integer numberOfDAAs;
      private Double highestAllocationPercentage;
      private Double averageAllocationPercentage;
      private List<DAAAllocation> daaAllocationList = new ArrayList<>();
      private Date createdDate;
+
+    public AssetStats() {
+        Calendar cal = Calendar.getInstance();
+        this.setDate(cal.get(Calendar.DATE));
+        this.setMonth(cal.get(Calendar.MONTH));
+        this.setYear(cal.get(Calendar.YEAR));
+    }
 
 
     public String getName() {
@@ -87,5 +101,30 @@ public class AssetStats implements Comparable{
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
+
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public Integer getDate() {
+        return date;
+    }
+
+    public void setDate(Integer date) {
+        this.date = date;
     }
 }

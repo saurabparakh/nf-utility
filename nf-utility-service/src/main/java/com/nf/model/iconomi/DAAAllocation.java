@@ -1,21 +1,15 @@
 package com.nf.model.iconomi;
 
 public class DAAAllocation {
-    private String assetName;
+    private String daaName;
     private Double allocationValue;
 
-    public DAAAllocation(String assetName, Double allocationValue) {
-        this.assetName = assetName;
+    public DAAAllocation(String daaName, Double allocationValue) {
+        this.daaName = daaName;
         this.allocationValue = allocationValue;
     }
 
-    public String getAssetName() {
-        return assetName;
-    }
 
-    public void setAssetName(String assetName) {
-        this.assetName = assetName;
-    }
 
     public Double getAllocationValue() {
         return allocationValue;
@@ -23,5 +17,13 @@ public class DAAAllocation {
 
     public void setAllocationValue(Double allocationValue) {
         this.allocationValue = allocationValue;
+    }
+
+    public String getDaaName() {
+        return daaName;
+    }
+
+    public void setDaaName(String daaName) {
+        this.daaName = daaName;
     }
 }
