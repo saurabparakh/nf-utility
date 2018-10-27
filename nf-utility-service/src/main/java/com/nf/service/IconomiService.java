@@ -2,6 +2,7 @@ package com.nf.service;
 
 import com.nf.client.IconomiClient;
 import com.nf.model.iconomi.AssetStats;
+import com.nf.model.iconomi.CustomDate;
 import com.nf.model.iconomi.DAAAllocation;
 import com.nf.model.iconomi.DAADetails;
 import com.nf.model.iconomi.Value;
@@ -48,7 +49,7 @@ public class IconomiService {
                     stringAssetStatsMap.put(asset.getAssetName(), assetStats);
                 }
                 assetStats.setName(asset.getAssetName());
-                assetStats.getDaaAllocationList().add(new DAAAllocation(daaDetails.getName(),asset.getRebalancedWeight()));
+                assetStats.getDaaAllocationList().add(new DAAAllocation(daaDetails.getTicker(),asset.getRebalancedWeight()));
             }
         }
 
@@ -58,5 +59,9 @@ public class IconomiService {
         }
         return assetStatsList;
 
+    }
+
+    public List<AssetStats> fetchIconomiAssetStats(CustomDate customDate) {
+        return assetStatsRepository.fetchAssetStatsByDate(customDate);
     }
 }

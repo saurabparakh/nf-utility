@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AssetStatsRepository extends MongoRepository<AssetStats, String> {
+public interface AssetStatsRepository extends MongoRepository<AssetStats, String>, AssetStatsRepositoryCustom {
 
 
 }
